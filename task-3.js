@@ -16,11 +16,26 @@ const images = [
   },
 ];
 
-images.map(({url, alt}) => {
-  const image = document.querySelector('#gallery');
-  image.insertAdjacentHTML('afterbegin', `<li><img src = ${url}, alt = ${alt} width=200px>`);
+
+
+images.reduce((image, { url, alt }) => {
+  image = document.querySelector('#gallery');
+  image.insertAdjacentHTML(
+    'afterbegin',
+    `<li><img src = ${url}, alt = ${alt} width=200px>`,
+  );
   image.style.display = 'flex';
   image.style.listStyle = 'none';
-});
+}, []);
+
+
+
+
+// images.map(({url, alt}) => {
+//   const image = document.querySelector('#gallery');
+//   image.insertAdjacentHTML('afterbegin', `<li><img src = ${url}, alt = ${alt} width=200px>`);
+//   image.style.display = 'flex';
+//   image.style.listStyle = 'none';
+// });
 
 
