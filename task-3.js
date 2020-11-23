@@ -18,15 +18,17 @@ const images = [
 
 
 
-images.reduce((image, { url, alt }) => {
-  image = document.querySelector('#gallery');
-  image.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src = ${url}, alt = ${alt} width=200px>`,
-  );
-  image.style.display = 'flex';
-  image.style.listStyle = 'none';
-}, []);
+const itemsLi = images.reduce((image, { url, alt }) => {
+  
+  image.push(`<li><img src = ${url} , alt =${alt} width=200px>`);
+  return image;
+ 
+},[]);
+
+const image = document.querySelector('#gallery');
+image.insertAdjacentHTML('afterbegin', itemsLi);
+image.style.display = 'flex';
+image.style.listStyle = 'none';
 
 
 
